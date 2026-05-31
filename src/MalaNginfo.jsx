@@ -4,6 +4,22 @@ import button1 from "./assets/Icon.svg";
 import info from "./assets/Info.svg";
 import pantau from "./assets/pantau.svg";
 import iconw from "./assets/icon warga.svg";
+import panah from "./assets/panah.svg";
+import panahkanan from "./assets/panahsamping.svg";
+import panahkiri from "./assets/panahkiri.svg";
+import panahkecil from "./assets/panahkecil.svg";
+import surat from "./assets/surat.svg";
+import web from "./assets/web.svg";
+import iconCentang from "./assets/centang.svg";
+import iconKalender from "./assets/kalender.svg";
+import foto from "./assets/foto.svg";
+import unggah from "./assets/unggah.svg";
+import secure from "./assets/secure.svg";
+import respon from "./assets/respon.svg";
+import progres from "./assets/progres.svg";
+import send from "./assets/send.svg";
+import cari from "./assets/cari.svg";
+import tanggal from "./assets/tanggal.svg";
 // ============================================================
 // DATA
 // ============================================================
@@ -305,10 +321,19 @@ function Navbar({ page, setPage }) {
       display: "flex", alignItems: "center", justifyContent: "space-between",
       padding: "0 40px", height: 60,
     }}>
-      <span
-        onClick={() => setPage({ name: "home" })}
-        style={{fontWeight: 700, fontSize: 20, color: "var(--primary)", cursor: "pointer" }}
-      >MalaNginfo</span>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+  {page.name !== "home" && (
+   <img
+  src={panahkiri}
+  onClick={() => setPage({ name: "home" })}
+  style={{ width: 24, height: 24, cursor: "pointer" }}
+/>
+  )}
+  <span
+    onClick={() => setPage({ name: "home" })}
+    style={{ fontWeight: 700, fontSize: 20, color: "var(--primary)", cursor: "pointer" }}
+  >MalaNginfo</span>
+</div>
       <div style={{ display: "flex", gap: 28 }}>
         <span
           onClick={() => setPage({ name: "home" })}
@@ -326,15 +351,19 @@ function Navbar({ page, setPage }) {
 function Footer({ setPage }) {
   return (
     <footer style={{ background: "var(--primary)", color: "var(--surface)", padding: "48px 40px 24px" }}>
-      <div style={{ display: "flex", gap: 60, flexWrap: "wrap", marginBottom: 40 }}>
-        <div style={{ maxWidth: 260 }}>
-          <div style={{fontWeight: 700, fontSize: 22, marginBottom: 12 }}>MalaNginfo</div>
-          <p style={{ fontSize: 13, lineHeight: 1.7, color: "#a8bfd4", margin: 0 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", marginBottom: 40 }}>
+        <div style={{ maxWidth: 390 }}>
+          <div style={{fontWeight: 700, fontSize: 28, marginBottom: 12 }}>MalaNginfo</div>
+          <p style={{ fontSize: 15, lineHeight: 1.7, color: "#a8bfd4", margin: 0 }}>
             Sumber informasi dan layanan pelaporan masyarakat untuk mendukung Kota Malang yang lebih informatif dan terhubung
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-            <span style={{ width: 32, height: 32, border: "1px solid #3a5570", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 14 }}>🌐</span>
-            <span style={{ width: 32, height: 32, border: "1px solid #3a5570", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 14 }}>✉</span>
+            <span style={{ width: 32, height: 32, border: "1px solid #3a5570", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 14 }}>
+              <img src={web} />
+                 </span>
+            <span style={{ width: 32, height: 32, border: "1px solid #3a5570", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 14 }}>
+              <img src={surat}/>
+            </span>
           </div>
         </div>
         <div style={{ display: "flex", gap: 60, flexWrap: "wrap" }}>
@@ -359,13 +388,14 @@ function Footer({ setPage }) {
   );
 }
 
-function ProgressBar({ value, color = "linear-gradient(to right, #003B6B, #FACC15)" }) {
+function ProgressBar({ value, color = "linear-gradient(to right, #FACC15, #003B6B)" }) {
   return (
-    <div style={{ background: "#e0e7ef", borderRadius: 4, height: 6, overflow: "hidden", width: "100%" }}>
+    <div style={{ background: "#e0e7ef", borderRadius: 4, height: 8, overflow: "hidden", width: "100%" }}>
       <div style={{ width: `${value}%`, height: "100%", background: color, borderRadius: 4, transition: "width 0.6s ease" }} />
     </div>
   );
 }
+
 
 // ============================================================
 // PAGE: HOME
@@ -384,7 +414,7 @@ function HomePage({ setPage }) {
           alt=""
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.25 }}
         />
-        <div style={{ position: "relative", padding: "80px 40px", maxWidth: 850 }}>
+        <div style={{ position: "relative", padding: "60px 40px", maxWidth: 850 }}>
           <h1 style={{fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 700, color: "var(--surface)", lineHeight: 1.25, margin: "0 0 16px" }}>
             Tetap Terhubung dengan Kabar dan Kondisi Kota Malang
           </h1>
@@ -407,26 +437,29 @@ function HomePage({ setPage }) {
 
       {/* Feature cards */}
       <div style={{ background: "var(--canvas)", padding: "40px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 30, maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 30}}>
           {[
-            { icon: info, title: "Lapor Fasilitas", desc: "Laporkan kerusakan jalan, fasilitas publik, atau gangguan layanan langsung ke instansi terkait", cta: "Mulai Melapor →", action: () => setPage({ name: "laporan" }) },
-            { icon: pantau, title: "Pantau Pembangunan", desc: "Lihat real-time progress pembangunan di sekitar Anda dengan data yang akurat dan mudah diakses", cta: "Lihat Proyek →", action: () => setPage({ name: "daftar" }) },
+            { icon: info, title: "Lapor Fasilitas", desc: "Laporkan kerusakan jalan, fasilitas publik, atau gangguan layanan langsung ke instansi terkait", cta: "Mulai Melapor", arrow:true, action: () => setPage({ name: "laporan" }) },
+            { icon: pantau, title: "Pantau Pembangunan", desc: "Lihat real-time progress pembangunan di sekitar Anda dengan data yang akurat dan mudah diakses", cta: "Lihat Proyek", arrow:true, action: () => setPage({ name: "daftar" }) },
           ].map(card => (
-            <div key={card.title} style={{ background: "var(--surface)", borderRadius: 12, padding: 28, boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-              <div style={{ width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, marginBottom: 16 }}>
+            <div key={card.title} style={{ background: "#EFF3FF", borderRadius: 12, padding: "40px 36px" , boxShadow: "0 2px 12px rgba(0,0,0,0.06)", border: "1px solid #C2C7D1", display: "flex", flexDirection: "column", gap: 16}}>
+              <div style={{ width: 56, height: 56, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, marginBottom: 16 }}>
                 <img
   src={card.icon}
   alt=""
   style={{
-    width: 34,
-    height: 34,
+    width: 58,
+    height: 58,
     objectFit: "contain"
   }}
 />
               </div>
-              <h3 style={{fontSize: 18, fontWeight: 700, margin: "0 0 8px", color: "var(--primary)" }}>{card.title}</h3>
-              <p style={{ fontSize: 13, color: "#667", lineHeight: 1.6, margin: "0 0 16px" }}>{card.desc}</p>
-              <span onClick={card.action} style={{ fontSize: 13, color: "var(--primary)", fontWeight: 600, cursor: "pointer" }}>{card.cta}</span>
+              <h3 style={{fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--primary)" }}>{card.title}</h3>
+              <p style={{ fontSize: 17, color: "#667", lineHeight: 1.6, margin: "0 0 16px" }}>{card.desc}</p>
+             <span onClick={card.action} style={{ fontSize: 15, color: "var(--primary)", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
+              {card.cta}
+              {card.arrow && <img src={panahkanan} style={{ width: 16, height: 16 }} />}
+</span>
             </div>
           ))}
         </div>
@@ -434,32 +467,34 @@ function HomePage({ setPage }) {
 
       {/* Proyek Strategis */}
       <div style={{ background: "#EFF3FF", padding: "48px 40px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 8, maxWidth: 900, margin: "0 auto 24px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 32 }}>
           <div>
-            <h2 style={{fontSize: 26, fontWeight: 700, color: "var(--primary)", margin: 0 }}>Proyek Strategis Terbaru</h2>
-            <p style={{ fontSize: 13, color: "#889", margin: "4px 0 0" }}>Update terkini pengerjaan infrastruktur utama di Kota Malang</p>
+            <h2 style={{fontSize: 32, fontWeight: 700, color: "var(--primary)", margin: " 0 0 8px" }}>Proyek Strategis Terbaru</h2>
+            <p style={{ fontSize: 14, color: "#889", margin: 0 }}>Update terkini pengerjaan infrastruktur utama di Kota Malang</p>
           </div>
-          <span onClick={() => setPage({ name: "daftar" })} style={{ fontSize: 13, color: "var(--primary)", fontWeight: 600, cursor: "pointer", whiteSpace: "nowrap" }}>Semua Proyek ↗</span>
+          <span onClick={() => setPage({ name: "daftar" })} style={{ fontSize: 14, color: "var(--primary)", fontWeight: 600, cursor: "pointer", whiteSpace: "nowrap", display: "flex", alignItems: "Center", gap: 6}}>Semua Proyek <img src={panah} style={{ width: 16, height: 16 }} /> </span>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 30}}>
           {projects.slice(0, 3).map(p => {
             const st = statusStyle(p.status);
             return (
-              <div key={p.id} style={{ border: "1px solid #eee", borderRadius: 12, overflow: "hidden", background: "var(--surface)", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-                <img src={p.img} alt={p.title} style={{ width: "100%", height: 160, objectFit: "cover" }} />
+              <div key={p.id} style={{ border: "1px solid #eee", borderRadius: 12, overflow: "hidden", background: "var(--surface)", boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "1px solid #C2C7D1", display: "flex", flexDirection: "column", gap: 10 }}>
+                <img src={p.img} alt={p.title} style={{ width: "100%", height: 200, objectFit: "cover" }} />
                 <div style={{ padding: 16 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
-                    <span style={{ fontSize: 14, fontWeight: 600, color: "var(--primary)", lineHeight: 1.3, minHeight: 38,
+                    <span style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)", lineHeight: 1.3, minHeight: 38,
     display: "block"}}>{p.title}</span>
-                    <span style={{ fontSize: 9, fontWeight: 700, background: st.bg, color: st.color, borderRadius: "999px", padding: "2px 7px", whiteSpace: "nowrap", marginLeft: 8,  minWidth: 70,          // ← lebar minimum badge
+                    <span style={{ fontSize: 10, fontWeight: 800, background: st.bg, color: st.color, borderRadius: "999px", padding: "4px 10px", whiteSpace: "nowrap", marginLeft: 8,  minWidth: 70,          // ← lebar minimum badge
   minHeight: 22,  display: "inline-flex", alignItems: "center",  justifyContent: "center"}}>{p.status}</span>
                   </div>
-                  <p style={{ fontSize: 12, color: "#888", margin: "0 0 8px" }}>Progress Pengerjaan</p>
-                  <ProgressBar value={p.progress} />
-                  <p style={{ fontSize: 12, color: "#555", margin: "4px 0 12px", textAlign: "right" }}>{p.progress}%</p>
+                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <p style={{ fontSize: 12, fontWeight: 500, color: "var(--text-primary)", margin: 0 }}>Progress Pengerjaan</p>
+                  <p style={{ fontSize: 12, color: "#555", margin: 0 }}>{p.progress}%</p>
+                  </div>
+                   <ProgressBar value={p.progress} />
                   <button
                     onClick={() => setPage({ name: "detail", id: p.id })}
-                    style={{ width: "100%", background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 8, padding: "10px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}
+                    style={{ width: "100%", background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 8, padding: "13px", fontSize: 15, fontWeight: 600, cursor: "pointer", marginTop:20 }}
                   >Lihat Detail</button>
                 </div>
               </div>
@@ -470,16 +505,19 @@ function HomePage({ setPage }) {
 
       {/* Berita */}
       <div style={{ background: "var(--canvas)", padding: "48px 40px" }}>
-        <h2 style={{fontSize: 26, fontWeight: 700, color: "var(--primary)", marginBottom: 24, maxWidth: 900, margin: "0 auto 24px" }}>Berita & Informasi</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, maxWidth: 900, margin: "0 auto" }}>
+        <h2 style={{fontSize: 32, fontWeight: 700, color: "var(--primary)", marginBottom: 25 }}>Berita & Informasi</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 30 }}>
           {news.map(n => (
-            <div key={n.id} style={{ background: "var(--surface)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-              <img src={n.img} alt={n.title} style={{ width: "100%", height: 180, objectFit: "cover" }} />
+            <div key={n.id} style={{ background: "var(--surface)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "1px solid #C2C7D1", display: "flex", flexDirection: "column" }}>
+              <img src={n.img} alt={n.title} style={{ width: "100%", height: 200, objectFit: "cover" }} />
               <div style={{ padding: 16 }}>
-                <span style={{ fontSize: 10, fontWeight: 700, background: n.categoryBg, color: n.categoryColor, borderRadius: "999px", padding: "3px 10px" }}>{n.category}</span>
-                <h3 style={{ fontSize: 15, fontWeight: 600, color: "var(--primary)", margin: "10px 0 4px", lineHeight: 1.4 }}>{n.title}</h3>
-                <p style={{ fontSize: 12, color: "#888", margin: "0 0 12px" }}>{n.date}</p>
-                <span onClick={() => setPage({ name: "berita", id: n.id })} style={{ fontSize: 13, color: "var(--primary)", fontWeight: 600, cursor: "pointer" }}>Baca Selengkapnya →</span>
+                <span style={{ fontSize: 11, fontWeight: 700, background: n.categoryBg, color: n.categoryColor, borderRadius: "999px", padding: "5px 13px" }}>{n.category}</span>
+                <h3 style={{ fontSize: 15, fontWeight: 600, color: "var(--primary)", margin: "11px 0 4px", lineHeight: 1.4 }}>{n.title}</h3>
+                <p style={{ fontSize: 12, color: "#888", margin: "0 0 14px" }}>{n.date}</p>
+                <span onClick={() => setPage({ name: "berita", id: n.id })} style={{ fontSize: 14, color: "var(--primary)", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
+                Baca Selengkapnya
+              <img src={panahkecil} style={{ width: 12, height: 12 }} />
+              </span>
               </div>
             </div>
           ))}
@@ -538,49 +576,53 @@ function DaftarPage({ setPage }) {
             <label style={{ fontSize: 12, color: "#666", display: "block", marginBottom: 6 }}>Masukan Judul Laporan</label>
             <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Cari pembangunan fasilitas..." style={{ width: "100%", padding: "10px 12px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, boxSizing: "border-box" }} />
           </div>
-          <button style={{ background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 8, padding: "10px 24px", fontSize: 13, fontWeight: 600, cursor: "pointer", height: 40 }}>🔍 Cari</button>
+          <button style={{ background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 8, padding: "10px 24px", fontSize: 13, fontWeight: 600, cursor: "pointer", height: 40, display: "flex", alignItems: "center", gap: 6 }}>
+            <img src={cari} />Cari</button>
         </div>
       </div>
 
-      {/* Grid */}
-      <div style={{ background: "var(--canvas)", padding: "0 40px 48px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, maxWidth: 900, margin: "0 auto" }}>
-          {filtered.slice(0, shown).map(p => {
-            const st = statusStyle(p.status);
-            const barColor = p.progress <100 ? p.progressBar : "#315CAA";
-            return (
-              <div key={p.id} style={{ background: "var(--surface)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-                <div style={{ display: "flex", gap: 12, padding: 14 }}>
-                  <img src={p.img} alt={p.title} style={{ width: 72, height: 72, objectFit: "cover", borderRadius: 8, flexShrink: 0 }} />
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 6 }}>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--primary)", lineHeight: 1.3 }}>{p.title}</span>
-                      <span style={{ fontSize: 9, fontWeight: 700, background: st.bg, color: st.color, borderRadius: "999px", padding: "3px 10px", whiteSpace: "nowrap" }}>{p.status}</span>
-                    </div>
-                    <p style={{ fontSize: 11, color: "#888", margin: "4px 0 0" }}>Lokasi: {p.location}</p>
-                  </div>
-                </div>
-                <div style={{ padding: "0 14px 14px" }}>
-                  <p style={{ fontSize: 11, color: barColor, fontWeight: 600, margin: "0 0 4px" }}>{p.progress}% Selesai</p>
-                  <ProgressBar value={p.progress} color={barColor} />
-                  <button
-                    onClick={() => setPage({ name: "detail", id: p.id })}
-                    style={{ width: "100%", background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 8, padding: "9px", fontSize: 12, fontWeight: 600, cursor: "pointer", marginTop: 12 }}
-                  >Lihat Detail</button>
-                </div>
+     {/* Grid */}
+<div style={{ background: "var(--canvas)", padding: "0 40px 48px" }}>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+    {filtered.slice(0, shown).map(p => {
+      const st = statusStyle(p.status);
+      return (
+        <div key={p.id} style={{ background: "var(--surface)", borderRadius: 16, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "1px solid #e0e7ef", display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", gap: 12, padding: "16px 16px 12px" }}>
+            <img src={p.img} alt={p.title} style={{ width: 80, height: 80, objectFit: "cover", borderRadius: 10, flexShrink: 0 }} />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 6 }}>
+                <span style={{ fontSize: 15, fontWeight: 700, color: "var(--primary)", lineHeight: 1.4, minHeight: 44, display: "block" }}>{p.title}</span>
+                <span style={{ fontSize: 9, fontWeight: 700, background: st.bg, color: st.color, borderRadius: "999px", padding: "4px 10px", whiteSpace: "nowrap", minWidth: 64, textAlign: "center" }}>{p.status}</span>
               </div>
-            );
-          })}
-        </div>
-        {shown < filtered.length && (
-          <div style={{ textAlign: "center", marginTop: 28 }}>
-            <button onClick={() => setShown(s => s + 3)} style={{ background: "transparent", border: "1.5px solid var(--primary)", color: "var(--primary)", borderRadius: "999px", padding: "10px 32px", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-              Muat Lebih Banyak
-            </button>
+              <p style={{ fontSize: 12, color: "#888", margin: "8px 0 0" }}>Lokasi: {p.location}</p>
+            </div>
           </div>
-        )}
-      </div>
+          <div style={{ padding: "0 16px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
+            <p style={{ fontSize: 13, color: "var(--primary)", fontWeight: 700, margin: "0 0 6px" }}>{p.progress}% Selesai</p>
+           <ProgressBar 
+  value={p.progress} 
+  color={p.progress < 100 ? "linear-gradient(to right, #FACC15, #003B6B)" : "#315CAA"} 
+/>
+            <button
+              onClick={() => setPage({ name: "detail", id: p.id })}
+              style={{ width: "100%", background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 10, padding: "13px", fontSize: 13, fontWeight: 600, cursor: "pointer", marginTop: "auto", marginTop: 20 }}
+            >Lihat Detail</button>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+  {shown < filtered.length && (
+    <div style={{ textAlign: "center", marginTop: 28 }}>
+      <button onClick={() => setShown(s => s + 3)} style={{ background: "transparent", border: "1.5px solid var(--primary)", color: "var(--primary)", borderRadius: "999px", padding: "10px 32px", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+        Muat Lebih Banyak
+      </button>
     </div>
+  )}
+</div>
+      </div>
+    
   );
 }
 
@@ -609,7 +651,7 @@ function DetailPage({ projectId, setPage }) {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,30,60,0.85) 0%, rgba(0,0,0,0.2) 100%)" }} />
         <div style={{ position: "absolute", bottom: 24, left: 40 }}>
           <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
-            <span style={{ fontSize: 11, fontWeight: 600, background: "var(--warning)", color: "var(--surface)", borderRadius: "999px", padding: "3px 8px" }}>Diproses</span>
+            <span style={{ fontSize: 11, fontWeight: 600, background: "#6B5828", color: "var(--surface)", borderRadius: "999px", padding: "3px 8px" }}>Diproses</span>
             <span style={{ fontSize: 11, fontWeight: 600, background: "rgba(255,255,255,0.2)", color: "var(--surface)", borderRadius: "999px", padding: "3px 8px" }}>Infrastruktur</span>
           </div>
           <h1 style={{ fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 700, color: "var(--surface)", margin: "0 0 8px" }}>{p.fullTitle}</h1>
@@ -630,10 +672,13 @@ function DetailPage({ projectId, setPage }) {
                   <h3 style={{color: "var(--primary)", fontSize: 17, fontWeight: 700, margin: 0 }}>Ringkasan Progres</h3>
                   <p style={{ fontSize: 12, color: "#888", margin: "4px 0 16px" }}>Update terakhir: {p.lastUpdate}</p>
                 </div>
-                <div style={{ background: "#E3F2FD", borderRadius: 8, padding: "8px 14px", textAlign: "center" }}>
-                  <p style={{ fontSize: 10, color: "var(--primary)", margin: "0 0 2px" }}>📅 ESTIMASI SELESAI</p>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--primary)", margin: 0 }}>{p.estimasi}</p>
+                <div style={{ background: "#EFF3FF", borderRadius: 10, padding: "12px 16px", display: "flex", alignItems: "center", gap: 12 }}>
+                <img src={iconKalender} style={{ width: 20, height: 20 }} />
+                <div>
+                  <p style={{ fontSize: 10, color: "#888", margin: "0 0 2px", fontWeight: 600, letterSpacing: 0.5 }}>ESTIMASI SELESAI</p>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: "var(--primary)", margin: 0 }}>{p.estimasi}</p>
                 </div>
+              </div>
               </div>
               <div style={{ fontSize: 48, fontWeight: 800, color: "var(--primary)", lineHeight: 1, marginBottom: 8 }}>{p.progress}%</div>
               <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 6 }}>
@@ -662,8 +707,10 @@ function DetailPage({ projectId, setPage }) {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8 }}>
                 {photoUrls.slice(0, 7).map((url, i) => (
                   i === 6
-                    ? <div key={i} style={{ aspectRatio: "1", borderRadius: 8, background: "var(--primary)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: "var(--surface)", cursor: "pointer" }}>
-                        <span style={{ fontSize: 20 }}>📷</span>
+                    ? <div key={i} style={{ aspectRatio: "1", borderRadius: 8, background: "var(--primary)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: "#9CC6FF", cursor: "pointer" }}>
+                        <span style={{ fontSize: 20 }}>
+                          <img src= {foto}/>
+                        </span>
                         <span style={{ fontSize: 12, fontWeight: 700, marginTop: 4 }}>+12 Foto</span>
                       </div>
                     : <img key={i} src={url} alt="" style={{ width: "100%", aspectRatio: "1", objectFit: "cover", borderRadius: 8 }} />
@@ -674,30 +721,56 @@ function DetailPage({ projectId, setPage }) {
 
           {/* Right */}
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            {/* Timeline */}
-            <div style={{ background: "var(--surface)", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-              <h3 style={{color: "var(--primary)", fontSize: 17, fontWeight: 700, margin: "0 0 20px" }}>Timeline Proyek</h3>
-              <div style={{ position: "relative", paddingLeft: 28 }}>
-                <div style={{ position: "absolute", left: 10, top: 8, bottom: 8, width: 2, background: "#e0e7ef" }} />
-                {p.timeline.map((t, i) => (
-                  <div key={i} style={{ marginBottom: 20, position: "relative" }}>
-                    <div style={{
-                      position: "absolute", left: -22, top: 4, width: 14, height: 14, borderRadius: "50%",
-                      background: t.done ? "var(--primary)" : t.active ? "var(--primary)" : "#e0e7ef",
-                      border: t.active ? "3px solid #a8d0f0" : "2px solid var(--surface)",
-                      boxShadow: "0 0 0 2px " + (t.done || t.active ? "var(--primary)" : "#e0e7ef"),
-                    }} />
-                    <div style={{
-                      background: t.active ? "var(--primary)" : t.done ? "#E3F2FD" : "#f5f5f5",
-                      borderRadius: 8, padding: "8px 12px",
-                    }}>
-                      <p style={{ fontSize: 11, color: t.active ? "#a8d0f0" : "#888", margin: "0 0 2px" }}>{t.date}</p>
-                      <p style={{ fontSize: 12, fontWeight: 600, color: t.active ? "var(--surface)" : t.done ? "var(--primary)" : "#999", margin: 0 }}>{t.label}</p>
-                    </div>
-                  </div>
-                ))}
+           {/* Timeline */}
+<div style={{ background: "var(--surface)", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+  <h3 style={{ color: "var(--primary)", fontSize: 20, fontWeight: 700, margin: "0 0 32px" }}>Timeline Proyek</h3>
+  <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center" }}>
+    
+    {/* Garis tengah */}
+    <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 2, background: "#e0e7ef", transform: "translateX(-50%)" }} />
+
+    {p.timeline.map((t, i) => {
+      const isLeft = i % 2 !== 0;
+      return (
+        <div key={i} style={{ display: "flex", alignItems: "center", width: "100%", marginBottom: 32, position: "relative", justifyContent: isLeft ? "flex-start" : "flex-end" }}>
+          
+          {/* Kotak kiri */}
+          {isLeft && (
+            <div style={{ width: "42%", marginRight: "8%" }}>
+              <div style={{ background: t.active ? "var(--primary)" : t.done ? "#EFF3FF" : "#f0f0f0", borderRadius: 10, padding: "12px 16px" }}>
+                <p style={{ fontSize: 11, color: t.active ? "#a8d0f0" : "var(--primary)", margin: "0 0 4px", fontWeight: 600 }}>{t.date}</p>
+                <p style={{ fontSize: 14, fontWeight: 700, color: t.active ? "var(--surface)" : t.done ? "var(--primary)" : "#aaa", margin: 0 }}>{t.label}</p>
               </div>
             </div>
+          )}
+
+          {/* Lingkaran tengah */}
+          <div style={{
+            position: "absolute", left: "50%", transform: "translateX(-50%)",
+            width: 36, height: 36, borderRadius: "50%", zIndex: 1,
+            background: t.done ? "var(--primary)" : t.active ? "var(--primary)" : "#e0e7ef",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            boxShadow: t.active ? "0 0 0 4px #a8d0f0" : "none"
+          }}>
+            {t.done && <img src={iconCentang} style={{ width: 16, height: 16, filter: "brightness(0) invert(1)" }} />}
+            {t.active && <div style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--surface)" }} />}
+          </div>
+
+          {/* Kotak kanan */}
+          {!isLeft && (
+            <div style={{ width: "42%", marginLeft: "8%" }}>
+              <div style={{ background: t.active ? "var(--primary)" : t.done ? "#EFF3FF" : "#f0f0f0", borderRadius: 10, padding: "12px 16px" }}>
+                <p style={{ fontSize: 11, color: t.active ? "#a8d0f0" : "var(--primary)", margin: "0 0 4px", fontWeight: 600 }}>{t.date}</p>
+                <p style={{ fontSize: 14, fontWeight: 700, color: t.active ? "var(--surface)" : t.done ? "var(--primary)" : "#aaa", margin: 0 }}>{t.label}</p>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    })}
+  </div>
+</div>
 
             {/* Update */}
             <div style={{ background: "var(--surface)", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
@@ -802,7 +875,7 @@ function LaporanPage() {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "var(--primary)", padding: "36px 40px 36px" }}>
+      <div style={{ background: "var(--accent)", padding: "36px 40px 36px" }}>
         <h1 style={{ fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 700, color: "var(--surface)", margin: "0 0 8px" }}>
           Sampaikan Aspirasi & Keluhan Anda
         </h1>
@@ -812,7 +885,7 @@ function LaporanPage() {
       </div>
 
       {/* Form */}
-      <div style={{ background: "#f5f0e8", padding: "32px 40px" }}>
+      <div style={{ background: "var(--canvas)", padding: "32px 40px" }}>
         <div style={{ background: "var(--surface)", borderRadius: 12, padding: "28px 32px", maxWidth: 640, margin: "0 auto", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
           <p style={{ fontSize: 12, color: "var(--primary)", fontWeight: 700, marginBottom: 20, margin: "0 0 20px" }}>Kelengkapan Data</p>
 
@@ -822,14 +895,14 @@ function LaporanPage() {
               value={form.judul}
               onChange={e => setForm({ ...form, judul: e.target.value })}
               placeholder="Contoh: Lampu Jalan Padam di Jl. Ijen"
-              style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, boxSizing: "border-box", outline: "none" }}
+              style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, boxSizing: "border-box", outline: "none", background: "#EFF3FF" }}
             />
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 18 }}>
             <div>
               <label style={{ fontSize: 13, fontWeight: 600, color: "#444", display: "block", marginBottom: 6 }}>Kategori Fasilitas</label>
-              <select value={form.kategori} onChange={e => setForm({ ...form, kategori: e.target.value })} style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, background: "var(--surface)" }}>
+              <select value={form.kategori} onChange={e => setForm({ ...form, kategori: e.target.value })} style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, background: "#EFF3FF" }}>
                 <option value="">Pilih Kategori</option>
                 <option>Jalan</option>
                 <option>Lampu Jalan</option>
@@ -842,8 +915,9 @@ function LaporanPage() {
             </div>
             <div>
               <label style={{ fontSize: 13, fontWeight: 600, color: "#444", display: "block", marginBottom: 6 }}>Foto Pendukung</label>
-              <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, width: "100%", padding: "10px 14px", border: "1.5px dashed #bbb", borderRadius: 8, fontSize: 13, color: "#888", cursor: "pointer", boxSizing: "border-box" }}>
-                📷 Unggah Foto
+              <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, width: "100%", padding: "10px 14px", border: "1.5px dashed #bbb", borderRadius: 8, fontSize: 13, color: "#888", cursor: "pointer", boxSizing: "border-box", background: "#EFF3FF" }}>
+                <img src={unggah}/>
+               Unggah Foto
                 <input type="file" accept="image/*" style={{ display: "none" }} />
               </label>
             </div>
@@ -852,14 +926,14 @@ function LaporanPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 18 }}>
             <div>
               <label style={{ fontSize: 13, fontWeight: 600, color: "#444", display: "block", marginBottom: 6 }}>Kecamatan</label>
-              <select value={form.kecamatan} onChange={e => setForm({ ...form, kecamatan: e.target.value, kelurahan: "" })} style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, background: "var(--surface)" }}>
+              <select value={form.kecamatan} onChange={e => setForm({ ...form, kecamatan: e.target.value, kelurahan: "" })} style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, background: "#EFF3FF" }}>
                 <option value="">Pilih Kecamatan</option>
                 {Object.keys(kelurahanMap).map(k => <option key={k}>{k}</option>)}
               </select>
             </div>
             <div>
               <label style={{ fontSize: 13, fontWeight: 600, color: "#444", display: "block", marginBottom: 6 }}>Kelurahan</label>
-              <select value={form.kelurahan} onChange={e => setForm({ ...form, kelurahan: e.target.value })} style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, background: "var(--surface)" }}>
+              <select value={form.kelurahan} onChange={e => setForm({ ...form, kelurahan: e.target.value })} style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, background: "#EFF3FF" }}>
                 <option value="">Pilih Kelurahan</option>
                 {(kelurahanMap[form.kecamatan] || []).map(k => <option key={k}>{k}</option>)}
               </select>
@@ -873,17 +947,18 @@ function LaporanPage() {
               onChange={e => setForm({ ...form, detail: e.target.value })}
               placeholder="Berikan deskripsi lengkap mengenai kondisi di lapangan, patokan lokasi, atau dampak yang dirasakan..."
               rows={5}
-              style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, boxSizing: "border-box", resize: "vertical", outline: "none", lineHeight: 1.6 }}
+              style={{ width: "100%", padding: "11px 14px", border: "1px solid #ddd", borderRadius: 8, fontSize: 13, boxSizing: "border-box", resize: "vertical", outline: "none", lineHeight: 1.6, background: "#EFF3FF"  }}
             />
           </div>
 
-          <div style={{ borderTop: "1px solid #eee", paddingTop: 20, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ borderTop: "3px solid #eee", paddingTop: 20, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <p style={{ fontSize: 12, color: "#888", margin: 0 }}>* Laporan Anda akan diverifikasi oleh admin dalam waktu 1×24 jam.</p>
             <button
               onClick={handleSubmit}
-              style={{ background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: 8, padding: "12px 24px", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}
+              style={{ background: "var(--primary)", color: "var(--surface)", border: "none", borderRadius: "999px", padding: "12px 24px", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}
             >
-              ▶ Kirim Laporan
+              <img src={send}/>
+               Kirim Laporan
             </button>
           </div>
         </div>
@@ -891,16 +966,16 @@ function LaporanPage() {
 
       {/* Info cards */}
       <div style={{ background: "#f5f0e8", padding: "0 40px 48px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, maxWidth: 700, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 30 }}>
           {[
-            { icon: "🛡️", color: "#E3F2FD", title: "Privasi Terjamin", desc: "Identitas pelapor dilindungi sepenuhnya oleh sistem keamanan data pemerintah Kota Malang" },
-            { icon: "⚡", color: "var(--surface)3E0", title: "Respon Cepat", desc: "Laporan diteruskan langsung ke dinas terkait secara otomatis" },
-            { icon: "🔄", color: "#E8F5E9", title: "Pantau Progres", desc: "Anda akan menerima notifikasi berkala mengenai perkembangan penanganan laporan Anda" },
+            { icon: secure, color: "#D8E2FF", title: "Privasi Terjamin", desc: "Identitas pelapor dilindungi sepenuhnya oleh sistem keamanan data pemerintah Kota Malang" },
+            { icon: respon, color: "#FFDCC5", title: "Respon Cepat", desc: "Laporan diteruskan langsung ke dinas terkait secara otomatis" },
+            { icon: progres, color: "#D8E2FF", title: "Pantau Progres", desc: "Anda akan menerima notifikasi berkala mengenai perkembangan penanganan laporan Anda" },
           ].map(c => (
-            <div key={c.title} style={{ background: c.color, borderRadius: 12, padding: 20 }}>
-              <div style={{ fontSize: 22, marginBottom: 10 }}>{c.icon}</div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "var(--primary)", margin: "0 0 6px" }}>{c.title}</p>
-              <p style={{ fontSize: 12, color: "#555", lineHeight: 1.6, margin: 0 }}>{c.desc}</p>
+            <div key={c.title} style={{ background: c.color, borderRadius: 12, padding: 40 }}>
+              <div style={{ fontSize: 24, marginBottom: 10 }}> <img src={c.icon} /> </div>
+              <p style={{ fontSize: 15, fontWeight: 700, color: "var(--primary)", margin: "0 0 6px" }}>{c.title}</p>
+              <p style={{ fontSize: 13, color: "#555", lineHeight: 1.6, margin: 0 }}>{c.desc}</p>
             </div>
           ))}
         </div>
