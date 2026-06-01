@@ -1,7 +1,7 @@
 import { useState } from "react";
 import home from "./assets/wajah-baru-alun-alun-tugu-malang_169.jpeg";
 import button1 from "./assets/Icon.svg";
-import info from "./assets/Info.svg";
+import info from "./assets/info.svg";
 import pantau from "./assets/pantau.svg";
 import iconw from "./assets/icon warga.svg";
 import panah from "./assets/panah.svg";
