@@ -10,6 +10,6 @@ import MalaNginfo from './MalaNginfo.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <MalaNginfo />
   </StrictMode>,
 )
