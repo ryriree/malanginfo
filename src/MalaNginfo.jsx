@@ -20,6 +20,18 @@ import progres from "./assets/progres.svg";
 import send from "./assets/send.svg";
 import cari from "./assets/cari.svg";
 import tanggal from "./assets/tanggal.svg";
+import alun from "./assets/alun.jpeg";
+import sejarah from "./assets/sejarah.jpeg";
+import suhat from "./assets/suhat.jpeg";
+import gor from "./assets/gor.jpg";
+import puskes from "./assets/puskes.jpg";
+import sd from "./assets/sd.jpg";
+import sigurgur from "./assets/sigurgur.jpeg";
+import ijen from "./assets/ijen.jpeg";
+import dokum from "./assets/dokum.jpeg";
+import hut from "./assets/hut.webp";
+import trans from "./assets/trans.jpeg";
+import iconcen from "./assets/iconcen.svg"
 // ============================================================
 // DATA
 // ============================================================
@@ -33,7 +45,7 @@ const projects = [
     progress: 85,
     kecamatan: "Klojen",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+    img: alun,
     category: "Infrastruktur",
     fullTitle: "Renovasi Taman Kota",
     description: "Proyek renovasi Taman Merdeka merupakan inisiatif strategis Pemerintah Kota Malang untuk memperindah ruang publik di pusat kota. Dengan penambahan taman bunga seluas 2 hektar dan penggantian sistem irigasi, diharapkan kawasan ini menjadi destinasi wisata kota yang lebih representatif. Selain renovasi taman, proyek ini juga mencakup modernisasi sistem pencahayaan taman menggunakan panel surya untuk menciptakan taman yang ramah lingkungan. Dampak yang diharapkan adalah peningkatan kunjungan wisatawan dan kualitas ruang terbuka hijau di Kota Malang.",
@@ -59,7 +71,7 @@ const projects = [
     progress: 40,
     kecamatan: "Lowokwaru",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&q=80",
+    img: suhat,
     category: "Infrastruktur",
     fullTitle: "Perluasan Jalan Soekarno Hatta",
     description: "Proyek perluasan Jalan Soekarno Hatta merupakan upaya Pemerintah Kota Malang untuk mengatasi kemacetan yang semakin parah di koridor utama kota. Pelebaran jalan sebesar 3 meter pada masing-masing sisi diharapkan mampu meningkatkan kapasitas arus lalu lintas secara signifikan. Proyek ini juga mencakup pembangunan median jalan baru, perbaikan sistem drainase, serta pemasangan trotoar yang lebih lebar dan nyaman bagi pejalan kaki. Estimasi penyelesaian adalah akhir tahun 2026.",
@@ -85,7 +97,7 @@ const projects = [
     progress: 12,
     kecamatan: "Blimbing",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
+    img: gor,
     category: "Infrastruktur",
     fullTitle: "Pembangunan GOR Internasional",
     description: "Proyek pembangunan Gedung Olahraga Internasional merupakan proyek ambisius Pemerintah Kota Malang untuk meningkatkan fasilitas olahraga bertaraf internasional. Gedung ini dirancang dengan kapasitas 10.000 kursi penonton dan dilengkapi dengan fasilitas modern termasuk lapangan multifungsi, pusat pelatihan atlet, dan area pendukung lainnya. Proyek ini diharapkan dapat menjadikan Kota Malang sebagai tuan rumah berbagai event olahraga internasional.",
@@ -111,7 +123,7 @@ const projects = [
     progress: 40,
     kecamatan: "Kedungkandang",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&q=80",
+    img: puskes,
     category: "Kesehatan",
     fullTitle: "Pembangunan Puskesmas Baru Kedungkandang",
     description: "Pembangunan Puskesmas baru di Kecamatan Kedungkandang bertujuan untuk meningkatkan akses layanan kesehatan bagi masyarakat di wilayah timur Kota Malang. Fasilitas ini akan dilengkapi dengan ruang gawat darurat, laboratorium, apotek, dan ruang rawat inap untuk 20 pasien. Puskesmas baru ini diharapkan dapat melayani lebih dari 50.000 jiwa penduduk di wilayah sekitarnya.",
@@ -162,7 +174,7 @@ const projects = [
     progress: 100,
     kecamatan: "Lowokwaru",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=80",
+    img: sd,
     category: "Pendidikan",
     fullTitle: "Renovasi SDN 1 Lowokwaru",
     description: "Proyek renovasi SDN 1 Lowokwaru mencakup perbaikan menyeluruh gedung sekolah yang sudah berusia lebih dari 30 tahun. Renovasi meliputi perbaikan atap, penggantian kusen dan jendela, pengecatan ulang, serta peningkatan fasilitas toilet dan ruang kelas. Tujuannya adalah menciptakan lingkungan belajar yang lebih nyaman dan aman bagi siswa.",
@@ -188,7 +200,7 @@ const projects = [
     progress: 75,
     kecamatan: "Lowokwaru",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80",
+    img: sigurgur,
     category: "Infrastruktur",
     fullTitle: "Perluasan Jalan Sigura-gura",
     description: "Proyek perluasan Jalan Utama Sigura-gura merupakan inisiatif strategis Pemerintah Kota Malang untuk mengurai kemacetan kronis yang sering terjadi di kawasan pendidikan ini. Dengan penambahan lebar jalan sebesar 4 meter pada masing-masing sisi, diharapkan arus lalu lintas dari dan menuju area kampus akan menjadi lebih lancar.\n\nSelain perluasan aspal, proyek ini juga mencakup modernisasi sistem drainase bawah tanah untuk mencegah genangan air saat musim hujan, serta pembangunan trotoar ramah disabilitas yang dilengkapi dengan guiding block dan pencahayaan jalan berbasis panel surya.\n\nDampak yang diharapkan adalah peningkatan efisiensi waktu tempuh bagi masyarakat dan penguatan ekonomi lokal di sepanjang Sigura-gura.",
@@ -214,7 +226,7 @@ const projects = [
     progress: 5,
     kecamatan: "Klojen",
     tahun: "2026",
-    img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=80",
+    img: ijen,
     category: "Infrastruktur",
     fullTitle: "Perbaikan Jalan Ijen Boulevard",
     description: "Proyek perbaikan Jalan Ijen Boulevard mencakup penambalan lubang, pelapisan ulang aspal, dan perbaikan marka jalan di sepanjang koridor utama ini. Jalan Ijen merupakan salah satu ikon Kota Malang sehingga kualitas jalannya perlu dijaga dengan baik.",
@@ -265,7 +277,7 @@ const news = [
     categoryBg: "#0C528F",
     title: "Peringatan HUT Kota Malang Ke-111 Berlangsung Meriah",
     date: "1 April 2026",
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
+    img: hut,
     content: `MALANG – Peringatan Hari Ulang Tahun (HUT) Kota Malang yang ke-111 berlangsung dengan penuh kemeriahan dan antusias dari masyarakat. Berbagai rangkaian kegiatan digelar selama sepekan penuh, mulai dari upacara resmi di Balai Kota, pameran budaya, hingga pertunjukan seni yang memukau.
 
 Wali Kota Malang dalam sambutannya mengajak seluruh warga untuk terus bersemangat membangun kota dengan semangat kebersamaan dan inovasi. Beliau menegaskan bahwa Kota Malang akan terus berkembang menjadi kota yang lebih modern, inklusif, dan berkelanjutan.
@@ -283,7 +295,7 @@ Puncak peringatan ditandai dengan pesta kembang api spektakuler di langit Kota M
     categoryBg: "#83AAFD",
     title: "Trans Jatim Mulai Beroperasi di Kota Malang",
     date: "21 Februari 2026",
-    img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+    img: trans,
     content: `MALANG – Kemudahan akses menuju berbagai destinasi wisata di Kota Batu kini semakin didukung oleh layanan Bus Trans Jatim Koridor 1 Malang Raya. Selain menawarkan tarif yang terjangkau, layanan transportasi massal ini juga memberikan kemudahan bagi masyarakat dan wisatawan karena menjangkau sejumlah lokasi wisata populer di kawasan Batu.
 
 Beberapa destinasi wisata yang dapat diakses melalui layanan ini antara lain Batu Ekonomis Park, Batu Night Spectacular (BNS), serta Jawa Timur Park 2 yang mencakup Museum Satwa dan Batu Secret Zoo. Kehadiran layanan ini diharapkan mampu menjadi alternatif transportasi yang lebih praktis bagi masyarakat, khususnya bagi wisatawan yang ingin berkunjung tanpa menggunakan kendaraan pribadi.
@@ -747,7 +759,7 @@ function DetailPage({ projectId, setPage }) {
           {/* Lingkaran tengah */}
           <div style={{
             position: "absolute", left: "50%", transform: "translateX(-50%)",
-            width: 36, height: 36, borderRadius: "50%", zIndex: 1,
+            width: 28, height: 28, borderRadius: "50%", zIndex: 1,
             background: t.done ? "var(--primary)" : t.active ? "var(--primary)" : "#e0e7ef",
             display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: t.active ? "0 0 0 4px #a8d0f0" : "none"
